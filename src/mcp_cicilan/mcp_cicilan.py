@@ -1,5 +1,5 @@
 from fastmcp import FastMCP
-from installment import FixedRateMortgage, TieredRateMortgage
+from .installment import FixedRateMortgage, TieredRateMortgage
 from typing import Annotated, List
 from pydantic import Field
 from decimal import Decimal
