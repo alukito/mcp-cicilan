@@ -2,6 +2,19 @@
 
 **mcp-cicilan** is a Mortgage and KPR (Kredit Pemilikan Rumah) MCP that provides tools to calculate monthly installments, remaining balance, and total interest paid for mortgage applications. It supports both fixed-rate and tiered-rate (bunga berjenjang) mortgages, commonly used in Indonesia.
 
+## Installation
+
+```
+"mcp-cicilan": {
+  "command": "uvx",
+  "args": [
+    "--from",
+    "git+https://github.com/alukito/mcp-cicilan", 
+    "mcp-cicilan"
+  ]
+}
+```
+
 ## Features
 
 - **Monthly Installment Calculation**: Compute monthly payments for both fixed and tiered interest rate mortgages.
@@ -43,25 +56,3 @@ The following tools are available (see `src/mcp_cicilan/mcp_cicilan.py`):
 
 - `format_rupiah(amount)`
   - Format a number as Indonesian Rupiah.
-
-## Example Usage
-
-You can use the tools programmatically. See `main.py` for an example:
-
-```python
-import asyncio
-from fastmcp import Client
-
-client = Client("src/mcp_cicilan/mcp_cicilan.py")
-
-async def call_tool():
-    async with client:
-        result = await client.call_tool("monthly_installment_fixed", {
-            "principal": 1_000_000_000,
-            "annual_interest": 0.06,
-            "months": 192
-        })
-        print(result)
-
-asyncio.run(call_tool())
-```
