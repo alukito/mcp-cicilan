@@ -92,5 +92,8 @@ def format_rupiah(amount: str) -> str:
     
     return format(Decimal(amount))
 
-if __name__ == "__main__":
+def main():
     mcp.run()
+
+if __name__ == "__main__":
+    main()
